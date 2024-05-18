@@ -6,7 +6,7 @@ import Markdown from 'react-markdown'
 import "./index.css"
 
 function Presentation({ url = "" }) {
-    const [data, setData] = useState(false)
+    const [data, setData] = useState < Boolean | any > (false)
     const [pageIndex, setPageIndex] = useState(0)
     const presentationView = useRef()
 
