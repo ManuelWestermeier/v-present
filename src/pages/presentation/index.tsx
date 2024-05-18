@@ -81,7 +81,7 @@ function Presentation({ url = "" }) {
                     <button onClick={() => {
                         var newPageIndex = 0;
 
-                        setPageIndex((old) => {
+                        setPageIndex((old: number) => {
                             newPageIndex = Math.min(old + 1, data.length - 1)
                             return newPageIndex
                         })
