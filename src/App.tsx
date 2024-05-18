@@ -8,7 +8,7 @@ function App() {
 
   if (searchParams.get("url") == "false") {
     const setURL = (newUrl: string) =>
-      setSearchParams((old: URLSearchParams) => {
+      setSearchParams(() => {
         return {
           url: newUrl
         }

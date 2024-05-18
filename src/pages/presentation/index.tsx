@@ -6,7 +6,7 @@ import "./index.css"
 function Presentation({ url = "" }) {
     const [data, setData] = useState<Array<string>>(["Loading..."])
     const [pageIndex, setPageIndex] = useState(0)
-    const presentationView = useRef<HTMLDivElement>()
+    const presentationView = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         fetchPresentationData(url)
@@ -17,16 +17,16 @@ function Presentation({ url = "" }) {
         <div className='presentation'>
             <header className='presentation-header'>
                 <div>
-                    <button onClick={e => setPageIndex(old => (old - 1) > 0 ? (old - 1) : 0)}>
+                    <button onClick={() => setPageIndex((old: number) => (old - 1) > 0 ? (old - 1) : 0)}>
                         {"<Last"}
                     </button>
                     <span>
                         {pageIndex + 1}
                     </span>
-                    <button onClick={e => setPageIndex(old => (old + 1) > data.length - 1 ? data.length - 1 : (old + 1))}>
+                    <button onClick={() => setPageIndex((old: number) => (old + 1) > data.length - 1 ? data.length - 1 : (old + 1))}>
                         {"Next>"}
                     </button>
-                    <button onClick={e => {
+                    <button onClick={() => {
                         presentationView?.current?.requestFullscreen()
                     }}>
                         [Fullscreen]
