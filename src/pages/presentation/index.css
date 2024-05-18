@@ -10,20 +10,22 @@
 }
 
 .presentation-view {
-    width: 100%;
-    height: calc(100dvh - 60px);
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: calc(100dvh - 100px);
     overflow: hidden;
+
+    background-color: var(--b);
+    color: var(--c);
 }
 
 .presentation-page {
     width: 100%;
     height: calc(100dvh - 60px);
+    background-color: var(--b);
 }
 
-/*
-.presentation-page-active {
-    width: 100%;
-    height: calc(100dvh - 60px);
-    transform: scaleX(1);
+.presentation-view:fullscreen .presentation-page {
+    margin-top: 20px;
+    height: calc(100dvh - 20px);
 }
-*/

@@ -1,42 +1,41 @@
-import React, { useRef } from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { fetchPresentationData } from "../../utils/fetch-presentation/"
+import { useRef, useEffect, useState } from 'react'
+import { fetchPresentationData } from "../../utils/fetch-presentation"
 import Markdown from 'react-markdown'
 import "./index.css"
 
 function Presentation({ url = "" }) {
-    const [data, setData] = useState < Boolean | any > (false)
+    const [data, setData] = useState<Array<string>>(["Loading..."])
     const [pageIndex, setPageIndex] = useState(0)
-    const presentationView = useRef()
+    const presentationView = useRef<HTMLDivElement>()
 
     useEffect(() => {
         fetchPresentationData(url)
             .then(data => setData(data))
     }, [])
 
-    if (!data) {
-        return <h1>Loading</h1>
-    }
-
     return (
         <div className='presentation'>
             <header className='presentation-header'>
-                <h1>
-                    Page
-                </h1>
                 <div>
-                    <button onClick={e => setPageIndex(old => old - 1)}>
-                        -
+                    <button onClick={e => setPageIndex(old => (old - 1) > 0 ? (old - 1) : 0)}>
+                        {"<Last"}
                     </button>
-                    <button onClick={e => setPageIndex(old => old + 1)}>
-                        +
+                    <span>
+                        {pageIndex + 1}
+                    </span>
+                    <button onClick={e => setPageIndex(old => (old + 1) > data.length - 1 ? data.length - 1 : (old + 1))}>
+                        {"Next>"}
+                    </button>
+                    <button onClick={e => {
+                        presentationView?.current?.requestFullscreen()
+                    }}>
+                        [Fullscreen]
                     </button>
                 </div>
             </header>
             <div className='presentation-view' ref={presentationView}>
                 {data.map((markdown, index) => {
-                    if (index == pageIndex && presentationView?.current?.children[index]) {
+                    if (index == pageIndex && presentationView?.current?.children?.[index]) {
                         presentationView
                             .current
                             .children[index]
