@@ -13,16 +13,24 @@
     padding: 20px;
     width: calc(100% - 40px);
     height: calc(100dvh - 100px);
-    overflow: hidden;
 
     background-color: var(--b);
     color: var(--c);
+
+    overflow-y: scroll;
+    scroll-snap-stop: always;
+    scroll-snap-type: y mandatory;
+}
+
+.presentation-view::-webkit-scrollbar {
+    display: flex;
 }
 
 .presentation-page {
     width: 100%;
     height: calc(100dvh - 60px);
     background-color: var(--b);
+    scroll-snap-align: center;
 }
 
 .presentation-view:fullscreen .presentation-page {
