@@ -15,7 +15,8 @@ html {
   font-family: monospace;
 }
 
-button {
+button,
+input {
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
@@ -29,8 +30,4 @@ ul {
 
 ol {
   margin: 10px 30px;
-}
-
-a {
-  
 }
