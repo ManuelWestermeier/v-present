@@ -31,3 +31,7 @@ ul {
 ol {
   margin: 10px 30px;
 }
+
+a {
+  color: var(--c);
+}
