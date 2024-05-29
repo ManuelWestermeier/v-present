@@ -12,7 +12,7 @@ function Presentation() {
   return (
     <div className="presentation">
       <header className="presentation-header">
-        <span>{url}</span>
+        <span>{url.length < 50 ? url : url.slice(0, 50)}</span>
         <PageIndexMenu
           changePageIndex={changePageIndex}
           pageIndex={pageIndex}
