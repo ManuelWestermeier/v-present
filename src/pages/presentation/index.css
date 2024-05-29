@@ -16,7 +16,7 @@
 
     background-color: var(--b);
     color: var(--c);
-
+    
     overflow-y: scroll;
     scroll-snap-stop: always;
     scroll-snap-type: y mandatory;

@@ -1,28 +1,27 @@
-import { useRef } from "react"
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-type SetPageProps = {
-    url: string,
-    setUrl: (url: string) => void
-}
+function SetPageUrlPage() {
+  const [searchParams, setSearchParams] = useSearchParams({ url: "" });
+  const navigate = useNavigate();
 
-function SetPageUrlPage(props: SetPageProps) {
-    const urlInput = useRef<HTMLInputElement>(null)
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate(`/presentation?${searchParams.toString()}`);
+  };
 
-    const onSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        if (urlInput.current) {
-            props.setUrl(urlInput.current.value)
+  return (
+    <form onSubmit={onSubmit}>
+      <input
+        placeholder="url..."
+        type="text"
+        value={searchParams.get("url") || ""}
+        onChange={(e) =>
+          setSearchParams({ url: e.target.value }, { replace: true })
         }
-    }
-
-    return (
-        <form onSubmit={onSubmit}>
-            <input placeholder="url..." type="text" ref={urlInput} />
-            <button type="submit">
-                Go
-            </button>
-        </form>
-    )
+      />
+      <button type="submit">Go</button>
+    </form>
+  );
 }
 
-export default SetPageUrlPage
+export default SetPageUrlPage;

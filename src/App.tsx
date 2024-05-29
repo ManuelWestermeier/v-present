@@ -1,23 +1,15 @@
-import { useSearchParams } from "react-router-dom"
-import SetPageUrlPage from "./pages/set-url-page"
-import Presentation from "./pages/presentation"
+import { Navigate, Route, Routes } from "react-router-dom";
+import SetPageUrlPage from "./pages/set-url-page";
+import Presentation from "./pages/presentation";
 
 function App() {
-  const [searchParams, setSearchParams] = useSearchParams({ url: "false" })
-  const url = searchParams.get("url") == "false" ? "" : searchParams.get("url") || ""
-
-  if (searchParams.get("url") == "false") {
-    const setURL = (newUrl: string) =>
-      setSearchParams(() => {
-        return {
-          url: newUrl
-        }
-      })
-
-    return <SetPageUrlPage url={url} setUrl={setURL} />
-  }
-
-  return <Presentation url={url} />
+  return (
+    <Routes>
+      <Route path="/" element={<SetPageUrlPage />} />
+      <Route path="/presentation" element={<Presentation />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
