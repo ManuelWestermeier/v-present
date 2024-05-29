@@ -3,8 +3,9 @@ import { fetchPresentationData } from "../utils/fetch-presentation";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 function usePresentationData(): [string[], string] {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams({ url: "" });
+  const [data, setData] = useState<string[]>(["Loading..."]);
+  const navigate = useNavigate();
 
   const url = searchParams.get("url");
 
@@ -12,8 +13,6 @@ function usePresentationData(): [string[], string] {
     navigate("/", { replace: true });
     return [["Navigating..."], "Navigating..."];
   }
-
-  const [data, setData] = useState<string[]>(["Loading..."]);
 
   useEffect(() => {
     fetchPresentationData(url).then((data) => setData(data));
