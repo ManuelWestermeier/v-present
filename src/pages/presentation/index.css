@@ -9,6 +9,13 @@
     left: 0;
 }
 
+.presentation-header span {
+    overflow: hidden;
+    line-break: anywhere;
+    max-width: calc(100% - 300px);
+    max-height: 1rem;
+}
+
 .presentation-view {
     padding: 20px;
     width: calc(100% - 40px);
@@ -16,14 +23,14 @@
 
     background-color: var(--b);
     color: var(--c);
-    
+
     overflow-y: scroll;
     scroll-snap-stop: always;
     scroll-snap-type: y mandatory;
 }
 
 .presentation-view::-webkit-scrollbar {
-    display: flex;
+    display: none;
 }
 
 .presentation-page {
@@ -31,6 +38,7 @@
     height: calc(100dvh - 60px);
     background-color: var(--b);
     scroll-snap-align: center;
+    overflow: auto;
 }
 
 .presentation-view:fullscreen .presentation-page {

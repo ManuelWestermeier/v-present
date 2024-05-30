@@ -15,6 +15,26 @@ html {
   font-family: monospace;
 }
 
+:focus {
+  box-shadow: 0 0 10px -2px var(--a);
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--b);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--a);
+  border-radius: 5px;
+}
+
 button,
 input {
   margin: 5px;
@@ -22,6 +42,7 @@ input {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  background-color: var(--a);
 }
 
 ul {
@@ -34,4 +55,8 @@ ol {
 
 a {
   color: var(--c);
+}
+
+.ml-10 {
+  margin-left: 10px;
 }

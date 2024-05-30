@@ -12,7 +12,7 @@ function Presentation() {
   return (
     <div className="presentation">
       <header className="presentation-header">
-        <span>{url.length < 50 ? url : url.slice(0, 50)}</span>
+        <span className="ml-10">{url}</span>
         <PageIndexMenu
           changePageIndex={changePageIndex}
           pageIndex={pageIndex}
@@ -25,7 +25,7 @@ function Presentation() {
         onScroll={handleScroll}
       >
         {data.map((markdown: string, index: number) => (
-          <Markdown key={index} className={"presentation-page"}>
+          <Markdown key={index} className="presentation-page">
             {markdown}
           </Markdown>
         ))}

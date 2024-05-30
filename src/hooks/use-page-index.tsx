@@ -1,13 +1,13 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 
-function usePageIndex(
-  dataLength: number
-): [
+type usePageIndexReturn = [
   RefObject<HTMLDivElement>,
   () => void,
   number,
   (nextPage: boolean) => () => void
-] {
+];
+
+function usePageIndex(dataLength: number): usePageIndexReturn {
   const [pageIndex, setPageIndex] = useState(0);
   const presentationView = useRef<HTMLDivElement>(null);
 
@@ -51,21 +51,17 @@ function usePageIndex(
 
   const changePageIndex = (nextPage: boolean) => {
     return () => {
-      setPageIndex((old) => {
-        const newPageIndex = nextPage
-          ? Math.min(old + 1, dataLength - 1)
-          : Math.max(old - 1, 0);
+      const newPageIndex = nextPage
+        ? Math.min(pageIndex + 1, dataLength - 1)
+        : Math.max(pageIndex - 1, 0);
 
-        const activePage = presentationView?.current?.children?.[newPageIndex];
+      const activePage = presentationView?.current?.children?.[newPageIndex];
 
-        if (activePage)
-          activePage.scrollIntoView({
-            block: "center",
-            behavior: "smooth",
-          });
-
-        return newPageIndex;
-      });
+      if (activePage)
+        activePage.scrollIntoView({
+          block: "center",
+          behavior: "smooth",
+        });
     };
   };
 

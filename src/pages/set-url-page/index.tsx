@@ -15,7 +15,7 @@ function SetPageUrlPage() {
 
   return (
     <form onSubmit={onSubmit} className="set-url-from">
-      <h1>Input your presentation Readme url</h1>
+      <h1>presentation makrdownfile url</h1>
       <button
         type="button"
         onClick={(e) => {
