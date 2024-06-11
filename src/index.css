@@ -83,10 +83,14 @@ a {
   max-width: 400px
 }
 
-.list a  {
+.list a {
   text-decoration: none;
 }
 
 .left-space {
   margin-left: auto;
+}
+
+.mw-35 {
+  min-width: 35px;
 }

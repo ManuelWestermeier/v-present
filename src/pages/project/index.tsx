@@ -63,7 +63,6 @@ function Project() {
         className="presentation-view"
         ref={presentationView}
         onScroll={handleScroll}
-        style={{ padding: "20px 0" }}
       >
         {data.map((markdown: string, index: number) => (
           <div className="presentation-page" key={index}>

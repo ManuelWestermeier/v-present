@@ -10,7 +10,7 @@ function PageControlls({
   data: string[];
 }) {
   return (
-    <div className="page-controlls">
+    <div className="page-controlls flex">
       <button
         type="button"
         className="icon"
