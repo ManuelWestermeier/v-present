@@ -1,8 +1,6 @@
 import MDEditor from "@uiw/react-md-editor";
 import PageIndexMenu from "../page-index-menu";
 import usePageIndex from "../../hooks/use-page-index";
-import openFile from "../../utils/open-file";
-import { downloadPresentation } from "../../utils/download";
 import HomeLink from "../home-link";
 import PlayMenu from "../play-menu";
 
