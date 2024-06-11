@@ -4,7 +4,7 @@ import { useState } from "react";
 import readFile from "../../utils/read-file";
 import Projects from "../../comp/projects";
 
-function SetPageUrlPage() {
+function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams({ url: "" });
   const [inputType, setInputType] = useState("text");
   const navigate = useNavigate();
@@ -17,9 +17,7 @@ function SetPageUrlPage() {
   return (
     <>
       <form onSubmit={onSubmit} className="set-url-from flex col list projects">
-        <h1>
-          v-present
-        </h1>
+        <h1>v-present</h1>
         <br />
         <hr />
         <br />
@@ -61,4 +59,4 @@ function SetPageUrlPage() {
   );
 }
 
-export default SetPageUrlPage;
+export default HomePage;
