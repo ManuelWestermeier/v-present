@@ -4,20 +4,29 @@ import PageIndexMenu from "../../comp/page-index-menu";
 import usePageIndex from "../../hooks/use-page-index";
 import PageControlls from "../../comp/page-controlls";
 import { Link } from "react-router-dom";
-import "./index.css"
+import "./index.css";
+import { useState } from "react";
+import { downloadPresentation } from "../../utils/download";
+import openFile from "../../utils/open-file";
+import Presenting from "../../comp/presenting";
 
 function Project() {
   const [projectData, setTitle, setProjectData] = useProject();
+  const [isPresenting, setIsPresenting] = useState(false);
   const data = projectData.data.split("\n#page#\n");
 
   const [presentationView, handleScroll, pageIndex, changePageIndex] =
     usePageIndex(data.length);
 
+  if (isPresenting) return <Presenting />;
+
   return (
     <div className="presentation">
       <header className="presentation-header">
         <div>
-          <Link to="/" className="ml-10">Home</Link>
+          <Link to="/" className="ml-10">
+            Home
+          </Link>
           <input
             type="text"
             placeholder="name..."
@@ -36,6 +45,17 @@ function Project() {
           pageIndex={pageIndex}
           presentationView={presentationView}
         />
+        <div>
+          <button type="button" onClick={() => setIsPresenting(true)}>
+            Play
+          </button>
+          <button type="button" onClick={() => downloadPresentation(data)}>
+            Download
+          </button>
+          <button type="button" onClick={() => openFile(setProjectData)}>
+            Open File
+          </button>
+        </div>
       </header>
       <div
         className="presentation-view"
