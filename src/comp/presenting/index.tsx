@@ -44,7 +44,7 @@ function Presenting({
         />
         <div>
           <button type="button" onClick={() => setIsPresenting(false)}>
-            Pause
+            Exit
           </button>
           <button type="button" onClick={() => downloadPresentation(data)}>
             Download
