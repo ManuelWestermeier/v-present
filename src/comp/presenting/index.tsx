@@ -46,7 +46,7 @@ function Presenting({
         />
       </header>
       <div
-        className="presentation-view"
+        className="presentation-view only-presentation"
         ref={presentationView}
         onScroll={handleScroll}
       >

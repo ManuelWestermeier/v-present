@@ -1,3 +1,8 @@
 .w-md-editor-text-input {
-    height: calc(100dvh - 95px);
+    min-height: calc(100dvh - 100px);
+    transition: all 0.3s ease-in-out;
+}
+
+.w-md-editor-text-input:focus {
+    box-shadow: none;
 }
