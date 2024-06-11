@@ -18,7 +18,16 @@ function Project() {
   const [presentationView, handleScroll, pageIndex, changePageIndex] =
     usePageIndex(data.length);
 
-  if (isPresenting) return <Presenting />;
+  if (isPresenting)
+    return (
+      <Presenting
+        setIsPresenting={setIsPresenting}
+        setProjectData={setProjectData}
+        title={projectData.title}
+        data={data}
+        setTitle={setTitle}
+      />
+    );
 
   return (
     <div className="presentation">
