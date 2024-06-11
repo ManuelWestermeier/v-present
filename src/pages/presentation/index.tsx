@@ -1,4 +1,4 @@
-import Markdown from "react-markdown";
+import MDEditor from "@uiw/react-md-editor";
 import "./index.css";
 import usePresentationData from "../../hooks/use-presentation-data";
 import PageIndexMenu from "../../comp/page-index-menu";
@@ -25,9 +25,11 @@ function Presentation() {
         onScroll={handleScroll}
       >
         {data.map((markdown: string, index: number) => (
-          <Markdown key={index} className="presentation-page">
-            {markdown}
-          </Markdown>
+          <MDEditor.Markdown
+            source={markdown}
+            key={index}
+            className="presentation-page"
+          ></MDEditor.Markdown>
         ))}
       </div>
     </div>
