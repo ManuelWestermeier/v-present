@@ -3,12 +3,11 @@ import useProject from "../../hooks/use-project";
 import PageIndexMenu from "../../comp/page-index-menu";
 import usePageIndex from "../../hooks/use-page-index";
 import PageControlls from "../../comp/page-controlls";
-import { Link } from "react-router-dom";
 import "./index.css";
 import { useState } from "react";
-import { downloadPresentation } from "../../utils/download";
-import openFile from "../../utils/open-file";
 import Presenting from "../../comp/presenting";
+import HomeLink from "../../comp/home-link";
+import PlayMenu from "../../comp/play-menu";
 
 function Project() {
   const [projectData, setTitle, setProjectData] = useProject();
@@ -32,10 +31,8 @@ function Project() {
   return (
     <div className="presentation">
       <header className="presentation-header">
-        <div>
-          <Link to="/" className="ml-10">
-            Home
-          </Link>
+        <div className="flex">
+          <HomeLink />
           <input
             type="text"
             placeholder="name..."
@@ -50,21 +47,17 @@ function Project() {
           data={data}
         />
         <PageIndexMenu
+          canGoFullscreen={false}
           changePageIndex={changePageIndex}
           pageIndex={pageIndex}
           presentationView={presentationView}
         />
-        <div>
-          <button type="button" onClick={() => setIsPresenting(true)}>
-            Play
-          </button>
-          <button type="button" onClick={() => downloadPresentation(data)}>
-            Download
-          </button>
-          <button type="button" onClick={() => openFile(setProjectData)}>
-            Open File
-          </button>
-        </div>
+        <PlayMenu
+          data={data}
+          setIsPresenting={setIsPresenting}
+          setProjectData={setProjectData}
+          isPresenting={false}
+        />
       </header>
       <div
         className="presentation-view"

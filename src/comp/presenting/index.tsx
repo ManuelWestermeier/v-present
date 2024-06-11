@@ -1,9 +1,10 @@
 import MDEditor from "@uiw/react-md-editor";
 import PageIndexMenu from "../page-index-menu";
 import usePageIndex from "../../hooks/use-page-index";
-import { Link } from "react-router-dom";
 import openFile from "../../utils/open-file";
 import { downloadPresentation } from "../../utils/download";
+import HomeLink from "../home-link";
+import PlayMenu from "../play-menu";
 
 function Presenting({
   setIsPresenting,
@@ -24,10 +25,8 @@ function Presenting({
   return (
     <div className="presentation">
       <header className="presentation-header">
-        <div>
-          <Link to="/" className="ml-10">
-            Home
-          </Link>
+        <div className="flex">
+          <HomeLink />
           <input
             type="text"
             placeholder="name..."
@@ -36,23 +35,17 @@ function Presenting({
             className="ml-10"
           />
         </div>
-        <div />
         <PageIndexMenu
           changePageIndex={changePageIndex}
           pageIndex={pageIndex}
           presentationView={presentationView}
         />
-        <div>
-          <button type="button" onClick={() => setIsPresenting(false)}>
-            Exit
-          </button>
-          <button type="button" onClick={() => downloadPresentation(data)}>
-            Download
-          </button>
-          <button type="button" onClick={() => openFile(setProjectData)}>
-            Open File
-          </button>
-        </div>
+        <PlayMenu
+          data={data}
+          setIsPresenting={setIsPresenting}
+          setProjectData={setProjectData}
+          isPresenting={true}
+        />
       </header>
       <div
         className="presentation-view"

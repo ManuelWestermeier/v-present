@@ -3,6 +3,7 @@ import "./index.css";
 import usePresentationData from "../../hooks/use-presentation-data";
 import PageIndexMenu from "../../comp/page-index-menu";
 import usePageIndex from "../../hooks/use-page-index";
+import HomeLink from "../../comp/home-link";
 
 function Presentation() {
   const [data, url] = usePresentationData();
@@ -12,7 +13,10 @@ function Presentation() {
   return (
     <div className="presentation">
       <header className="presentation-header">
-        <span className="ml-10">{url}</span>
+        <HomeLink />
+        <span>
+          {url}
+        </span>
         <PageIndexMenu
           changePageIndex={changePageIndex}
           pageIndex={pageIndex}

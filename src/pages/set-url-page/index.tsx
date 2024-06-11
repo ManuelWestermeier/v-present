@@ -16,8 +16,13 @@ function SetPageUrlPage() {
 
   return (
     <>
-      <form onSubmit={onSubmit} className="set-url-from">
-        <h1>presentation makrdownfile url</h1>
+      <form onSubmit={onSubmit} className="set-url-from flex col list projects">
+        <h1>
+          v-present
+        </h1>
+        <br />
+        <hr />
+        <br />
         <button
           type="button"
           onClick={(e) => {
@@ -48,6 +53,8 @@ function SetPageUrlPage() {
           />
         )}
         <button type="submit">Go</button>
+        <br />
+        <hr />
       </form>
       <Projects />
     </>
