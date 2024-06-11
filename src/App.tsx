@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Presentation from "./pages/presentation";
 import Project from "./pages/project";
-import HomePage from "./pages/set-url-page";
+import HomePage from "./pages/home";
 
 function App() {
   return (

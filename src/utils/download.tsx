@@ -5,6 +5,6 @@ export function downloadPresentation(data: string[]) {
   const name = prompt("filename :") ?? "";
   const downloadLink = document.createElement("a");
   downloadLink.href = downloadUrl;
-  downloadLink.download = `${name}.md`;
+  downloadLink.download = `${name}.pr.md`;
   downloadLink.click();
 }

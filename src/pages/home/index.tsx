@@ -43,7 +43,7 @@ function HomePage() {
           <input
             title="file"
             type="file"
-            accept=".md"
+            accept=".pr.md"
             onChange={async (e) => {
               const url = await readFile(e.nativeEvent);
               setSearchParams({ url }, { replace: true });
