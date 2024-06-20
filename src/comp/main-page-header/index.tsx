@@ -5,7 +5,7 @@ function MainPageHeader() {
     <>
       <div className="main-header">
         <h1>v-present</h1>
-        <p>The Best Open Source Markdown Presentation Software</p>
+        <p>The Best Open Source Markdown Presentation Software Worldwide</p>
         <img
           src="https://manuelwestermeier.github.io/v-present/logo.jpg"
           alt="logo"

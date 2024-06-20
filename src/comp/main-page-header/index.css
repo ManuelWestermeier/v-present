@@ -2,12 +2,16 @@
     position: relative;
 }
 
+.main-header p {
+    width: calc(100% - 80px);
+}
+
 .main-header img {
     width: 40px;
     height: 40px;
     object-fit: cover;
     border-radius: 20px;
     position: absolute;
-    right: 0;
-    top: 0;   
+    right: 20px;
+    top: 20px;
 }
