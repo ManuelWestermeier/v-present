@@ -68,6 +68,7 @@ function Project() {
           <div className="presentation-page" key={index}>
             <MDEditor
               height="calc(100dvh - 62px)"
+              style={{ backgroundColor: "var(--b)", color: "var(--c)" }}
               value={markdown}
               onChange={(newData = "") =>
                 setProjectData(
