@@ -3,6 +3,7 @@ import "./index.css";
 import { useState } from "react";
 import readFile from "../../utils/read-file";
 import Projects from "../../comp/projects";
+import MainPageHeader from "../../comp/main-page-header";
 
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams({ url: "" });
@@ -17,10 +18,7 @@ function HomePage() {
   return (
     <>
       <form onSubmit={onSubmit} className="set-url-from flex col list projects">
-        <h1>v-present</h1>
-        <br />
-        <hr />
-        <br />
+        <MainPageHeader />
         <button
           type="button"
           onClick={(e) => {
